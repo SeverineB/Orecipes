@@ -8,8 +8,9 @@ const Nav = ({ recipes }) => (
   <nav className="menu">
     <NavLink
       to="/"
+      exact
       className="menu-link"
-      activeClassName=" menu-link--current"
+      activeClassName="menu-link--current"
     >
       Accueil
     </NavLink>
@@ -18,6 +19,7 @@ const Nav = ({ recipes }) => (
         to="/recipe"
         key={id}
         className="menu-link"
+        activeClassName="menu-link--current"
       >
         {title}
       </NavLink>
@@ -27,7 +29,10 @@ const Nav = ({ recipes }) => (
 
 Nav.propTypes = {
   recipes: PropTypes.arrayOf(
-    PropTypes.object,
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    }),
   ).isRequired,
 };
 
