@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
+import { getUrlByTitle } from 'src/selectors/recipes';
+
 import './style.scss';
 
 const Nav = ({ recipes }) => (
@@ -16,7 +18,7 @@ const Nav = ({ recipes }) => (
     </NavLink>
     {recipes.map(({ id, title }) => (
       <NavLink
-        to="/recipe"
+        to={getUrlByTitle(title)}
         key={id}
         className="menu-link"
         activeClassName="menu-link--current"

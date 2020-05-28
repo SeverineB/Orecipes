@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 // == Import : local
 // Composants
-import App from 'src/components/App';
+import App from 'src/containers/App';
 // Store
 import store from 'src/store';
 
@@ -25,3 +25,7 @@ const rootReactElement = (
 const target = document.getElementById('root');
 // 3. Déclenchement du rendu de React (virtuel) => DOM (page web)
 render(rootReactElement, target);
+
+// Settings sync
+//pour envoyer sur ton github 1. Upload Key : Shift + Alt + U
+//pour le telecharger sur ton vsc 2. Download Key : Shift + Alt + D
