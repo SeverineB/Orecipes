@@ -1,0 +1,28 @@
+@use 'sass:color';
+@import 'src/styles/vars';
+
+.menu {
+  background-color: color.adjust($grey, $lightness: 10%);
+  border-right: 3px solid $grey;
+  width: 200px;
+  height: 100vh;
+  padding: $gutter;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  &-link {
+    display: block;
+    margin-bottom: $gutter;
+    cursor: pointer;
+    color: $text;
+
+    &:hover {
+      color: $color;
+    }
+
+    &--current {
+      color: $color;
+    }
+  }
+}

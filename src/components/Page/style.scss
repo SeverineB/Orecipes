@@ -1,0 +1,12 @@
+@import 'src/styles/vars';
+
+.page {
+  margin-left: 200px;
+
+  &-title {
+    font-size: 1.5em;
+    padding: $gutter;
+    font-weight: bold;
+    background-color: $grey;
+  }
+}
