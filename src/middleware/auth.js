@@ -11,19 +11,21 @@ const auth = (store) => (next) => (action) => {
     case HANDLE_LOGIN: {
       // j'ai accès au store donc au state
       const state = store.getState();
+      console.log(state);
       // axios.post(url[, data[, config]])
       console.log('je lance la requête');
       axios.post('http://localhost:3001/login', {
-        email: 'acidman@herocorp.io',
-        password: 'fructis',
+        email: state.email,
+        password: state.password,
       })
         .then((response) => {
           console.log('response', response.data);
           // j'ai le pseudo fourni par l'api
           // mon intention : ranger ce pseudo dans mon state
           // je vais dispatcher une action
-          const actionToSavePseudo = changeField('pseudo', response.data);
+          const actionToSavePseudo = changeField('username', response.data);
           store.dispatch(actionToSavePseudo);
+          console.log('je suis bien connecté');
         })
         .catch((error) => {
           /* console.error(error); */

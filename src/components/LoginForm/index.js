@@ -7,8 +7,8 @@ import Field from 'src/containers/Field';
 import './style.css';
 
 const LoginForm = ({
- /*  email,
-  password, */
+  email,
+  password,
   changeField,
   handleLogin,
   handleLogout,
@@ -17,6 +17,7 @@ const LoginForm = ({
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    console.log('je veux essayer de me connecter');
     handleLogin();
   };
 
@@ -44,14 +45,14 @@ const LoginForm = ({
             name="email"
             placeholder="Adresse Email"
             onChange={changeField}
-            /*value={email}*/
+            value={email}
           />
           <Field
             name="password"
             type="password"
             placeholder="Mot de passe"
             onChange={changeField}
-            /*value={password}*/
+            value={password}
           />
           <button
             type="submit"
@@ -66,8 +67,8 @@ const LoginForm = ({
 };
 
 LoginForm.propTypes = {
- /*  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired, */
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
   handleLogout: PropTypes.func.isRequired,

@@ -6,7 +6,8 @@ import { handleLogin, handleLogout, changeField } from 'src/actions/recipes';
 /* const mapStateToProps = (state) => {
 }; */
 
-const mapStateToProps = null;
+const mapStateToProps = (state) => {
+};
 
 const mapDispatchToProps = (dispatch) => ({
   changeField: () => {
