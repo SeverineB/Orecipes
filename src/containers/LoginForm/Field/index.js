@@ -5,13 +5,15 @@ import { changeField } from 'src/actions/recipes';
 
 const mapStateToProps = (state, ownProps) => {
   return ({
-    value: state[ownProps.name],
+    // le component Field va recevoir la props value qui provient du state
+    // et est modifiée par changeField selon si email ou password
+    valueField: state[ownProps.name],
   });
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onChange: (newValue) => {
-    /* console.log('je veux changer la valeur du champ'); */
+    /* console.log(`Container Field: je dispatch l'action changeField ${newValue}`); */
     const action = changeField(ownProps.name, newValue);
     dispatch(action);
   },

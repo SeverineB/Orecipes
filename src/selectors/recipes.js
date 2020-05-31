@@ -2,7 +2,13 @@
 import slugify from 'slugify';
 
 export const getSlugByTitle = (title) => {
-  return slugify(title, { lower: true });
+  const modifiedTitle = title.replace(/['&@]/g, '').replace(/[_]/g, '-');
+  return slugify(modifiedTitle, {
+    lower: true,
+    // cette option de slugify ne prend pas tous les caractères spéciaux
+    // en compte
+    /* remove: /['&@]/g, */
+  });
 };
 
 export const getUrlByTitle = (title) => {

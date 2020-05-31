@@ -1,6 +1,6 @@
 import { SAVE_RECIPES } from 'src/actions/recipes';
 
-const initialState = {
+export const initialState = {
   list: [],
 };
 

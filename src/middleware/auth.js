@@ -1,37 +1,67 @@
 import axios from 'axios';
 
-import { HANDLE_LOGIN, changeField } from 'src/actions/recipes';
-
-// Toutes les actions passent dans tous les middlewares tour à tour dans l'ordre donné à createStore tant que les middlewares laissent passer avec next, l'action termine sa course dans le reducer
+import { HANDLE_LOGIN, HANDLE_LOGOUT, changeField } from 'src/actions/recipes';
 
 const auth = (store) => (next) => (action) => {
-  // je vais réagir au cas par cas selon les types des actions
   switch (action.type) {
-    // je réagis spécifiquement aux actions m'intéressent
     case HANDLE_LOGIN: {
-      // j'ai accès au store donc au state
+      // accès au state
       const state = store.getState();
-      console.log(state);
-      // axios.post(url[, data[, config]])
+      console.log(`Middleware auth : j'affiche le state ${state.user.email}`);
       console.log('je lance la requête');
       axios.post('http://localhost:3001/login', {
-        email: state.email,
-        password: state.password,
+        email: state.user.email,
+        password: state.user.password,
       })
         .then((response) => {
-          console.log('response', response.data);
+          /*  console.log('response', response.data); */
           // j'ai le pseudo fourni par l'api
           // mon intention : ranger ce pseudo dans mon state
           // je vais dispatcher une action
-          const actionToSavePseudo = changeField('username', response.data);
-          store.dispatch(actionToSavePseudo);
-          console.log('je suis bien connecté');
+          const saveUsername = changeField('username', response.data.info.username);
+          store.dispatch(saveUsername);
+          const saveLoggedValue = changeField('logged', response.data.logged);
+          store.dispatch(saveLoggedValue);
+          console.log(response.data.logged, response.data.info.username);
         })
         .catch((error) => {
-          /* console.error(error); */
+          console.error(error);
         });
       break;
     }
+    case HANDLE_LOGOUT: {
+      const state = store.getState();
+      axios.post('http://localhost:3001/logout', {
+      })
+        .then((response) => {
+          const emptyEmail = changeField('email', '');
+          store.dispatch(emptyEmail);
+          const emptyPassword = changeField('password', '');
+          store.dispatch(emptyPassword);
+          const emptyUsername = changeField('username', '');
+          store.dispatch(emptyUsername);
+          const saveLoggedValue = changeField('logged', response.data.logged);
+          store.dispatch(saveLoggedValue);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    }
+    /* case IS_LOGGED: {
+      const state = store.getState();
+      axios.post('http://localhost:3001/isLogged', {
+        logged: state.user.logged,
+      })
+        .then((response) => {
+          const saveLoggedValue = changeField('logged', response.data.logged);
+          store.dispatch(saveLoggedValue);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    } */
     // pour toutes les autres, je les laisse passer sans rien faire
     default:
       next(action);

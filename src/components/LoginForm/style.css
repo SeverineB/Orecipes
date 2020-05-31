@@ -1,9 +1,11 @@
 .login-form {
-  width: 50%;
+  width: 100%;
+  position: absolute;
 }
 .login-form-element {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 .login-form-message {
   text-align: right;

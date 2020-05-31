@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Field from 'src/containers/Field';
+import Field from 'src/containers/LoginForm/Field';
 // import { useField } from './hooks';
 
 import './style.css';
@@ -12,19 +12,19 @@ const LoginForm = ({
   changeField,
   handleLogin,
   handleLogout,
-  isLogged,
+  /* isLogged, */
   loggedMessage,
+  logged,
 }) => {
   const handleSubmit = (evt) => {
+    /* console.log('j\'appelle la function handleLogin'); */
     evt.preventDefault();
-    console.log('je veux essayer de me connecter');
     handleLogin();
   };
 
-
   return (
     <div className="login-form">
-      {isLogged && (
+      {logged && (
         <div className="login-form-logged">
           <p className="login-form-message">
             {loggedMessage}
@@ -38,7 +38,7 @@ const LoginForm = ({
           </button>
         </div>
       )}
-      {!isLogged && (
+      {!logged && (
 
         <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
           <Field
@@ -72,13 +72,14 @@ LoginForm.propTypes = {
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
   handleLogout: PropTypes.func.isRequired,
-  isLogged: PropTypes.bool,
+  isLogged: PropTypes.func.isRequired,
+  logged: PropTypes.bool.isRequired,
   loggedMessage: PropTypes.string,
 };
 
 LoginForm.defaultProps = {
-  isLogged: false,
-  loggedMessage: 'Connecté',
+ /*  logged: false, */
+  loggedMessage: 'Vous êtes connecté',
 };
 
 export default LoginForm;

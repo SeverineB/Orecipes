@@ -1,30 +1,23 @@
-import { CHANGE_FIELD } from 'src/actions/recipes';
+import { CHANGE_FIELD, IS_LOGGED } from 'src/actions/recipes';
 
 const initialState = {
-  value: '',
-  users: [
-    {
-      email: 'bouclierman@herocorp.io',
-      password: 'jennifer',
-    },
-    {
-      email: 'acidman@herocorp.io',
-      password: 'fructis',
-    },
-    {
-      email: 'captain.sportsextremes@herocorp.io',
-      password: 'pingpong',
-    },
-  ],
+  username: '',
+  logged: false,
+  email: '',
+  password: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_FIELD:
-      console.log(state.email);
+      console.log(`dans le reducer user je récupère l'action key ${action.key} l'action value est ${  action.value}`);
       return {
         ...state,
         [action.key]: action.value,
+      };
+    case IS_LOGGED:
+      return {
+        logged: !state.logged,
       };
     default:
       return state;
