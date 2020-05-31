@@ -7,8 +7,7 @@ const auth = (store) => (next) => (action) => {
     case HANDLE_LOGIN: {
       // accès au state
       const state = store.getState();
-      console.log(`Middleware auth : j'affiche le state ${state.user.email}`);
-      console.log('je lance la requête');
+    /*   console.log(`Middleware auth : j'affiche le state ${state.user.email}`); */
       axios.post('http://localhost:3001/login', {
         email: state.user.email,
         password: state.user.password,

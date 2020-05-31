@@ -12,7 +12,6 @@ const LoginForm = ({
   changeField,
   handleLogin,
   handleLogout,
-  /* isLogged, */
   loggedMessage,
   logged,
 }) => {
