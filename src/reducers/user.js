@@ -1,8 +1,7 @@
-import { CHANGE_FIELD, IS_LOGGED } from 'src/actions/recipes';
+import { CHANGE_FIELD, SAVE_USER, DECONNECT_USER } from 'src/actions/recipes';
 
 const initialState = {
-  username: '',
-  logged: false,
+ /*  username: '', */
   email: '',
   password: '',
 };
@@ -15,9 +14,20 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.key]: action.value,
       };
-    case IS_LOGGED:
+    case SAVE_USER:
+      console.log(`j\'affiche le username ${action.username}`);
       return {
-        logged: !state.logged,
+        ...state,
+        isLogged: true,
+        email: '',
+        password: '',
+        username: action.username,
+      };
+    case DECONNECT_USER:
+      return {
+        ...state,
+        isLogged: false,
+        username: '',
       };
     default:
       return state;

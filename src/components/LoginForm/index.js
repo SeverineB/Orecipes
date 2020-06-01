@@ -9,11 +9,12 @@ import './style.css';
 const LoginForm = ({
   email,
   password,
+  username,
   changeField,
   handleLogin,
   handleLogout,
   loggedMessage,
-  logged,
+  isLogged,
 }) => {
   const handleSubmit = (evt) => {
     /* console.log('j\'appelle la function handleLogin'); */
@@ -23,10 +24,10 @@ const LoginForm = ({
 
   return (
     <div className="login-form">
-      {logged && (
+      {isLogged && (
         <div className="login-form-logged">
           <p className="login-form-message">
-            {loggedMessage}
+            {loggedMessage} - {username}
           </p>
           <button
             type="button"
@@ -37,7 +38,7 @@ const LoginForm = ({
           </button>
         </div>
       )}
-      {!logged && (
+      {!isLogged && (
 
         <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
           <Field
@@ -68,17 +69,18 @@ const LoginForm = ({
 LoginForm.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
+  username: PropTypes.string,
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
   handleLogout: PropTypes.func.isRequired,
-  isLogged: PropTypes.func.isRequired,
-  logged: PropTypes.bool.isRequired,
+  isLogged: PropTypes.bool,
   loggedMessage: PropTypes.string,
 };
 
 LoginForm.defaultProps = {
- /*  logged: false, */
-  loggedMessage: 'Vous êtes connecté',
+  isLogged: false,
+  loggedMessage: 'Bienvenu(e)',
+  username: '',
 };
 
 export default LoginForm;

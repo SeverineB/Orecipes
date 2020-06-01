@@ -33,7 +33,7 @@ const Field = ({
         placeholder={placeholder}
         name={name}
       />
-
+      {/* {console.log('j\'affiche la value :' + value)} */}
       <label
         htmlFor={inputId}
         className="field-label"

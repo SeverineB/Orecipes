@@ -4,17 +4,19 @@ import LoginForm from 'src/components/LoginForm';
 import {
   handleLogin,
   handleLogout,
-  isLogged,
   changeField,
+  saveUser,
+  deconnectUser,
 } from 'src/actions/recipes';
 
 const mapStateToProps = (state) => {
- /*  console.log(`Container LoginForm: j'affiche le state ${state.user.logged}`); */
+/* console.log(`Container LoginForm: j'affiche le state ${state.user.password}`); */
   // ici je dois récupérer les valeurs saisies
   return ({
     email: state.user.email,
     password: state.user.password,
-    logged: state.user.logged,
+    isLogged: state.user.isLogged,
+    username: state.user.username,
   });
 };
 
@@ -31,8 +33,12 @@ const mapDispatchToProps = (dispatch) => ({
     const action = handleLogout();
     dispatch(action);
   },
-  isLogged: () => {
-    const action = isLogged();
+  saveUser: () => {
+    const action = saveUser();
+    dispatch(action);
+  },
+  deconnectUser: () => {
+    const action = deconnectUser();
     dispatch(action);
   },
 });
