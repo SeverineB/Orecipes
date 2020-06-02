@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     // le component Field va recevoir la props value qui provient du state
     // et est modifiée par changeField selon si email ou password
-    valueField: state[ownProps.name],
+    inputValue: state[ownProps.name],
   });
 };
 
