@@ -5,9 +5,6 @@ export const getSlugByTitle = (title) => {
   const modifiedTitle = title.replace(/['&@]/g, '').replace(/[_]/g, '-');
   return slugify(modifiedTitle, {
     lower: true,
-    // cette option de slugify ne prend pas tous les caractères spéciaux
-    // en compte
-    /* remove: /['&@]/g, */
   });
 };
 

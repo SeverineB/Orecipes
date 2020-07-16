@@ -1,9 +1,6 @@
 @import 'src/styles/vars';
 
-// avec keyframes je définis mon animation
 @keyframes slideIn {
-  // on définis les étapes clés dans l'animation
-  // il y aura interpolation entre chaque étape
   0% {
     transform: translateY(-50px);
     opacity: 0;
@@ -17,7 +14,6 @@
 
 .page {
   margin-left: 200px;
-  // avec animation on précise quelle animation jouer - pendant combient de temps - combien de fois
   animation: slideIn .5s 1 cubic-bezier(.62,1.5,.73,1.36);
 
   &-title {

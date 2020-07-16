@@ -10,8 +10,6 @@ import {
 } from 'src/actions/recipes';
 
 const mapStateToProps = (state) => {
-/* console.log(`Container LoginForm: j'affiche le state ${state.user.password}`); */
-  // ici je dois récupérer les valeurs saisies
   return ({
     email: state.user.email,
     password: state.user.password,

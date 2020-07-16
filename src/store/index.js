@@ -15,7 +15,6 @@ const enhancers = composeEnhancers(
     debug,
     auth,
     api,
-    // secondMiddleware,
   ),
 );
 

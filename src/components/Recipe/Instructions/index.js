@@ -19,12 +19,10 @@ const Instructions = ({ steps }) => {
   );
 };
 
-// on valide nos props
 Instructions.propTypes = {
   steps: PropTypes.arrayOf(
     PropTypes.string,
   ).isRequired,
 };
 
-// Export composant
 export default Instructions;

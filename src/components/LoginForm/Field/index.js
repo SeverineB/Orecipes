@@ -15,7 +15,6 @@ const Field = ({
 }) => {
   const handleChange = (evt) => {
     onChange(evt.target.value, name);
-    /* console.log('Component Field : je récupère la saisie de ' + name + ' qui est ' + evt.target.value); */
   };
 
   const inputId = `field-${name}`;
@@ -23,17 +22,14 @@ const Field = ({
   return (
     <div className={value.length > 0 ? 'field field--has-content' : 'field'}>
       <input
-        // React - state
         value={value}
         onChange={handleChange}
-        // infos de base
         id={inputId}
         type={type}
         className="field-input"
         placeholder={placeholder}
         name={name}
       />
-      {/* {console.log('j\'affiche la value :' + value)} */}
       <label
         htmlFor={inputId}
         className="field-label"
