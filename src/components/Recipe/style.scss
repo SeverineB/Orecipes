@@ -1,0 +1,12 @@
+@import 'src/styles/vars';
+
+.recipe {
+  max-width: 900px;
+  padding: 0 1em;
+  margin-top: 20em;
+  @include m1024() {
+    margin-top: 1em;
+    max-width: 900px;
+    padding: 0 1em;
+  };
+}

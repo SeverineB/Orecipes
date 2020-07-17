@@ -2,18 +2,20 @@ import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Nav from 'src/containers/Nav';
-import LoginForm from 'src/containers/LoginForm';
-import Page from 'src/components/Page';
-import Home from 'src/components/Home';
-import Recipe from 'src/containers/Recipe';
+import LoginForm from '../LoginForm';
+import Page from '../Page';
+import Home from '../Home';
+import Recipe from '../../containers/Recipe';
+import Nav from '../../containers/Nav';
+
+import './style.scss';
 
 const App = ({ fetchRecipes }) => {
   useEffect(fetchRecipes, []);
   return (
-    <div>
-      <Nav />
+    <div className="wrapper">
       <LoginForm />
+      <Nav />
       <Route path="/" exact>
         <Page>
           <Home />

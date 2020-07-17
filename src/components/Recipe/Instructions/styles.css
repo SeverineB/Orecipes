@@ -14,7 +14,7 @@
 
 .step::before {
   content: '';
-  background: #F17F42;
+  background: #f39e66;
   left: 0;
   top: 50%;
   height: 1px;

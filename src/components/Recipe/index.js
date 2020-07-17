@@ -9,7 +9,7 @@ import Ingredients from './Ingredients';
 import Instructions from './Instructions';
 
 // Style
-import './styles.css';
+import './style.scss';
 
 // == Composant
 function Recipe({ recipe }) {

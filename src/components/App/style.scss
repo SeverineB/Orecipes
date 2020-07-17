@@ -1,0 +1,25 @@
+@import 'src/styles/vars';
+
+.app {
+  width: 500px;
+  margin: 1em auto;
+  text-align: center;
+}
+
+.app img {
+  max-width: 150px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+  @include m1024() {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+  };
+}

@@ -1,6 +1,13 @@
+@import 'src/styles/vars';
+
 .field {
+  width: 8em;
   margin: .3em;
   position: relative;
+  @include m1024() {
+    margin: .3em;
+    position: relative;
+  };
 }
 .field-input {
   width: 100%;
@@ -9,6 +16,7 @@
   border: none;
   border-radius: .3em;
   height: 2.5em;
+  z-index: 2;
 }
 .field-input:focus {
   border-color: #f17f42;

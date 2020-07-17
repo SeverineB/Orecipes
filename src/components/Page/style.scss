@@ -13,13 +13,28 @@
 }
 
 .page {
-  margin-left: 200px;
+  max-width: 900px;
   animation: slideIn .5s 1 cubic-bezier(.62,1.5,.73,1.36);
+  top: 0;
+  position: absolute;
+  width: 100%;
+  @include m1024() {
+    top: 0;
+    position: absolute;
+    max-width: 900px;
+    margin-left: 0;
+    animation: slideIn .5s 1 cubic-bezier(.62,1.5,.73,1.36);
+  };
 
   &-title {
-    font-size: 1.5em;
+    font-family: 'Galada';
+    font-size: 2em;
     padding: $gutter;
     font-weight: bold;
     background-color: $grey;
+    @include m1024() {
+      font-size: 3em;
+  
+    };
   }
 }
