@@ -1,0 +1,51 @@
+{
+	"container": {
+		"scope": "javascript",
+		"prefix": "container",
+		"body": [
+			"import { connect } from 'react-redux';",
+			"",
+			"import $1 from 'src/components/$1';",
+			"",
+			"const mapStateToProps = (state) => ({",
+			"});",
+			"const mapDispatchToProps = (dispatch) => ({",
+			"});",
+			"",
+			"export default connect(",
+			"  mapStateToProps,",
+			"  mapDispatchToProps,",
+			")($1);",
+			"",
+		]
+	},
+	"middleware": {
+		"scope": "javascript",
+		"prefix": "mw",
+		"body": [
+			"const $1 = (store) => (next) => (action) => {",
+			"  next(action);",
+			"};",
+			"",
+			"export default $1;",
+			""
+		],
+	},
+	"component": {
+		"scope": "javascript",
+		"prefix": "component",
+		"body": [
+			"import React from 'react';",
+			"",
+			"import './style.scss';",
+			"",
+			"const $1 = () => (",
+				"<div className=$1>",
+				"</div>",
+				");",
+			"export default $1;",
+			""
+		],
+	}
+}
+
