@@ -6,7 +6,7 @@ const auth = (store) => (next) => (action) => {
   switch (action.type) {
     case HANDLE_LOGIN: {
       const state = store.getState();
-      axios.post('http://localhost:3001/login', {
+      axios.post('http://orecipes.severinebianchi.com/login', {
         email: state.user.email,
         password: state.user.password,
       })
@@ -21,7 +21,7 @@ const auth = (store) => (next) => (action) => {
     }
     case HANDLE_LOGOUT: {
       const state = store.getState();
-      axios.post('http://localhost:3001/logout', {
+      axios.post('http://orecipes.severinebianchi.com/logout', {
       })
         .then((response) => {
           const deconnectUserInfos = deconnectUser(response.data.info.username);
