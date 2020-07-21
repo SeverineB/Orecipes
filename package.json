@@ -63,5 +63,6 @@
     "redux": "*",
     "slugify": "^1.4.0",
     "styled-components": "*"
-  }
+  },
+  "homepage": "http://orecipes.severinebianchi.com"
 }

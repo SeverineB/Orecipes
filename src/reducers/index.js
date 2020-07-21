@@ -6,5 +6,4 @@ import user from './user';
 export default combineReducers({
   recipes,
   user,
-  // recipes: recipes,
 });

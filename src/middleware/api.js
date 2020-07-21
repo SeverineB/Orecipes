@@ -5,10 +5,12 @@ import { FETCH_RECIPES, saveRecipes } from 'src/actions/recipes';
 const api = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_RECIPES:
-      axios.get('http://localhost:3001/recipes')
+      axios.get('http://orecipes-server.severinebianchi.com/recipes')
         .then((response) => {
           const saveRecipesAction = saveRecipes(response.data);
           store.dispatch(saveRecipesAction);
+        }, {
+          withCredentials: true,
         })
         .catch((error) => {
           console.error(error);

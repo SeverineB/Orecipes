@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import LoginForm from '../LoginForm';
+import LoginForm from '../../containers/LoginForm';
 import Page from '../Page';
 import Home from '../Home';
 import Recipe from '../../containers/Recipe';
